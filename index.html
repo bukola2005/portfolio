@@ -1,0 +1,1286 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Bukola Owoseni | Frontend &amp; Full-Stack Developer</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#4a021a",
+              "primary-container": "#671a2e",
+              "primary-accent": "#b8255f",
+              surface: "#fff8f8",
+              "surface-low": "#fff0f3",
+              "surface-card": "#ffffff",
+              "surface-container": "#fbeaee",
+              outline: "#877274",
+              "outline-soft": "#dac0c3",
+              "on-surface": "#22191c",
+              "on-surface-variant": "#544244",
+              "dark-ribbon": "#1a0a10",
+              "primary-dark": "#671a2e",
+              wine: "#671a2e",
+              "wine-light": "#fbeaee",
+              "on-surface": "#1e1518",
+              "on-surface-variant": "#544244",
+              "outline-soft": "#ecdbe0",
+              "surface-card": "#ffffff",
+              canvas: "#fcfbfc",
+            },
+            fontFamily: {
+              sans: ["Hanken Grotesk", "sans-serif"],
+              serif: ["Playfair Display", "serif"],
+              sans: ["Hanken Grotesk", "sans-serif"],
+              display: ["Hanken Grotesk", "sans-serif"],
+              script: ["Caveat", "cursive"],
+              serif: ["Playfair Display", "serif"],
+            },
+            animation: {
+              marquee: "marquee 26s linear infinite",
+            },
+            keyframes: {
+              marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-25%)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Background subtle grid inspired by Prachi Pandey's playful portfolio */
+      .hero-grid-pattern {
+        background-size: 56px 56px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(184, 37, 95, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(184, 37, 95, 0.05) 1px,
+            transparent 1px
+          );
+      }
+      .polaroid-shadow {
+        box-shadow:
+          0 24px 50px -12px rgba(103, 26, 46, 0.16),
+          0 8px 24px -4px rgba(0, 0, 0, 0.06);
+      }
+
+      @keyframes slideUpFade {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .slide-up-fade {
+        opacity: 0;
+        animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
+      .delay-5 {
+        animation-delay: 0.5s;
+      }
+      .delay-6 {
+        animation-delay: 0.6s;
+      }
+      .delay-7 {
+        animation-delay: 0.7s;
+      }
+      .delay-8 {
+        animation-delay: 0.8s;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#faf7f8] text-[#22191c] font-sans antialiased selection:bg-primary-accent selection:text-white min-h-screen bg-canvas text-on-surface font-sans antialiased selection:bg-primary selection:text-white min-h-screen"
+  >
+    <!-- 1. TOP NAVIGATION (Prachi Style: Clean brand on left, minimal links + socials on right) -->
+    <header
+      class="w-full bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-outline-soft/80"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <!-- Left Logo -->
+        <a
+          class="font-black text-2xl tracking-tight text-primary hover:text-primary transition-colors flex items-center gap-1.5"
+          href="index.html"
+        >
+          <span class="text-[#b8255f]">BUKOLA</span>
+          <span class="w-2 h-2 rounded-full bg-[#b8255f] inline-block"></span>
+        </a>
+        <!-- Center & Right Nav / Links -->
+        <div class="flex items-center gap-8 text-sm font-medium">
+          <nav
+            class="hidden md:flex items-center gap-6 text-on-surface-variant"
+          >
+            <a
+              class="text-on-surface font-semibold hover:text-primary transition-colors"
+              href="index.html"
+              >Home</a
+            >
+            <span class="text-outline-soft">/</span>
+            <a class="hover:text-primary transition-colors" href="#repositories"
+              >Repositories</a
+            >
+            <span class="text-outline-soft">/</span>
+            <a class="hover:text-primary transition-colors" href="#experience"
+              >Work</a
+            >
+          </nav>
+          <div class="flex items-center gap-3">
+            <!-- LinkedIn Icon Button -->
+            <a
+              class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-[#0077B5] bg-[#0077B5]/10 hover:bg-[#0077B5]/15 transition-colors"
+              href="https://www.linkedin.com/in/shukuraowoseni"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="LinkedIn Profile"
+            >
+              <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                ></path>
+              </svg>
+              <span class="hidden sm:inline">LinkedIn</span>
+            </a>
+            <!-- GitHub Link -->
+            <a
+              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-on-surface bg-gray-100 hover:bg-gray-200 transition-colors"
+              href="https://github.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="GitHub Repositories"
+            >
+              <svg class="w-4 h-4 fill-currentColor" viewBox="0 0 24 24">
+                <path
+                  clip-rule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+              <span class="hidden sm:inline">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- new -->
+    <!-- 2. HERO SECTION: Playful Editorial Grid with Tilted Polaroid Frame -->
+    <section
+      class="relative w-full overflow-hidden hero-grid-pattern pt-12 pb-24 border-b border-outline-soft/60"
+    >
+      <!-- Floating Doodles across the grid (matching Prachi's coffee, star, gym dumbbell, code icons) -->
+      <div
+        class="absolute inset-0 pointer-events-none select-none max-w-6xl mx-auto"
+      >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-3xl absolute top-16 left-12"
+          >coffee</span
+        >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-3xl absolute top-36 left-48"
+          >fitness_center</span
+        >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-3xl absolute top-20 right-16"
+          >laptop_mac</span
+        >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-2xl absolute top-64 right-36"
+          >star</span
+        >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-3xl absolute bottom-16 left-24"
+          >code</span
+        >
+        <span
+          class="material-symbols-outlined text-outline-soft/80 text-3xl absolute bottom-20 right-20"
+          >movie</span
+        >
+      </div>
+      <div
+        class="max-w-4xl mx-auto px-6 flex flex-col items-center text-center relative z-10"
+      >
+        <!-- Floating Top Chip Pill (like Prachi's "Lead Product Designer at SCALER") -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-outline-soft shadow-sm mb-6 text-xs sm:text-sm font-semibold text-on-surface slide-up-fade delay-1"
+        >
+          <span class="">🏆</span>
+          <span class="text-primary font-bold"
+            >NACOS Female Tech Personality of the Year</span
+          >
+          <span class="text-outline-soft">•</span>
+          <span class="text-on-surface-variant font-medium">LASUSTECH</span>
+        </div>
+        <!-- Hero Greeting & Massive Bold Typography -->
+        <h2
+          class="text-2xl sm:text-3xl text-on-surface font-medium mb-1 slide-up-fade delay-2"
+        >
+          Hey there, I'm
+        </h2>
+        <h1
+          class="text-5xl sm:text-7xl lg:text-[84px] font-black tracking-tight text-[#b8255f] leading-none mb-10 slide-up-fade delay-3"
+        >
+          Bukola Owoseni
+          <span class="text-[#000000]">.</span>
+        </h1>
+        <!-- Centered Tilted Polaroid Card Photo Frame -->
+        <div class="relative group my-4">
+          <!-- Polaroid Shell with -2deg tilt and rich shadow -->
+          <div
+            class="bg-white p-4 pb-6 rounded-md polaroid-shadow border border-outline-soft/90 -rotate-2 hover:rotate-0 transition-transform duration-300 w-[290px] sm:w-[340px] md:w-[380px] mx-auto slide-up-fade delay-4"
+          >
+            <!-- Award Portrait Photo Inside Polaroid -->
+            <div
+              class="aspect-[3/4] w-full rounded-sm overflow-hidden bg-gray-100 relative"
+            >
+              <img
+                alt="Bukola Owoseni holding her NACOS Female Tech Personality of the Year Award"
+                class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500 ease-out"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEgVO3aH0FTEFKNpsbWYqphIL-NaF-V1gFLgq3RT30QVyhPdDMfkwXQY-OxTe2Qvwx3MJw5J_IBkZOvpaEkFhJeXJniDVj4nHxJdABPtSVq-6Ozn1zyfoJx2V4pIiYZQ8Bj4lp4ppO26Z33XWSNmvw34rU1NYy3c2Pcyy_g-47T40ubszU-CKFPQxW_V7QWSmi4rl-doQsTKTE9ZFg6jyjjEBfoU-3OuR-ZIw3sweSs06VOLeuBRbOhcP8d50NUL-JHSw"
+              />
+            </div>
+            <!-- Handwritten Script Caption -->
+            <div class="pt-4 text-center">
+              <p
+                class="font-script text-2xl sm:text-3xl text-on-surface font-bold tracking-wide"
+              >
+                Based in Lagos, NG 📍
+              </p>
+            </div>
+          </div>
+          <!-- Decorative pin or badge -->
+          <div
+            class="absolute -top-3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary/80 border-2 border-white shadow-sm pointer-events-none"
+          ></div>
+        </div>
+        <!-- Quick Subtext -->
+        <p
+          class="text-base sm:text-lg text-on-surface-variant max-w-xl mt-6 leading-relaxed slide-up-fade delay-5"
+        >
+          Full-stack engineer &amp; computer science student crafting
+          interactive, resilient digital solutions from Lagos to the global web.
+        </p>
+
+        <!-- Call to Action Buttons -->
+        <div
+          class="flex flex-wrap items-center justify-center gap-3 mt-8 slide-up-fade delay-6"
+        >
+          <a
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white text-xs font-bold hover:bg-primary-accent transition-all shadow-md"
+            href="#experience"
+          >
+            <span class="material-symbols-outlined text-[16px]"
+              >description</span
+            >
+            <span>View Journey &amp; CV</span>
+          </a>
+          <a
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-primary border border-outline-soft hover:bg-surface-container text-xs font-bold transition-all shadow-sm"
+            href="mailto:owoseni.bukola2008@gmail.com"
+          >
+            <span>owoseni.bukola2008@gmail.com</span>
+            <span class="material-symbols-outlined text-[14px]"
+              >content_copy</span
+            >
+          </a>
+        </div>
+      </div>
+
+      <!-- "MY STACK" ROW (Images 6, 7 style) -->
+      <div
+        class="mt-10 pt-7 border-t border-outline-soft flex justify-center flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 centered pl-10 slide-up-fade delay-7"
+      >
+        <span
+          class="text-[11px] font-extrabold uppercase tracking-wider text-gray-400 whitespace-nowrap"
+        >
+          MY STACK
+        </span>
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- React -->
+          <div
+            class="w-10 h-10 rounded-full bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 hover:scale-110 transition-transform shadow-xs"
+            title="React.js"
+          >
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 9c1.65 0 3 1.35 3 3s-1.35 3-3 3-3-1.35-3-3 1.35-3 3-3m0-2c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+              ></path>
+            </svg>
+          </div>
+          <!-- JavaScript -->
+          <div
+            class="w-10 h-10 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 font-black text-xs hover:scale-110 transition-transform shadow-xs"
+            title="JavaScript ES6+"
+          >
+            JS
+          </div>
+          <!-- Tailwind CSS -->
+          <div
+            class="w-10 h-10 rounded-full bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-600 font-bold text-xs hover:scale-110 transition-transform shadow-xs"
+            title="Tailwind CSS"
+          >
+            <span class="material-symbols-outlined text-[20px]">css</span>
+          </div>
+          <!-- HTML5 / Sass -->
+          <div
+            class="w-10 h-10 rounded-full bg-rose-50 border border-rose-200 flex items-center justify-center text-rose-600 font-black text-xs hover:scale-110 transition-transform shadow-xs"
+            title="HTML5 &amp; Sass"
+          >
+            Sass
+          </div>
+          <!-- C++ -->
+          <div
+            class="w-10 h-10 rounded-full bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-700 font-black text-xs hover:scale-110 transition-transform shadow-xs"
+            title="C++ Algorithms"
+          >
+            C++
+          </div>
+          <!-- Git / GitHub -->
+          <div
+            class="w-10 h-10 rounded-full bg-gray-100 border border-gray-300 flex items-center justify-center text-black hover:scale-110 transition-transform shadow-xs"
+            title="Git &amp; GitHub"
+          >
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                clip-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <!-- Figma -->
+          <div
+            class="w-10 h-10 rounded-full bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-600 font-bold text-xs hover:scale-110 transition-transform shadow-xs"
+            title="Figma UI/UX"
+          >
+            <span class="material-symbols-outlined text-[18px]">draw</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 3. FULL-WIDTH ANIMATED TICKER MARQUEE (from Wall of Portfolios reference) -->
+    <div
+      class="w-full bg-[#1a0a10] py-3.5 overflow-hidden whitespace-nowrap select-none border-y border-[#3d1a26]"
+    >
+      <div
+        class="inline-flex items-center gap-8 text-xs sm:text-sm font-bold uppercase tracking-widest text-white/90 animate-marquee"
+      >
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>NACOS Female Tech Personality of the Year</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>LASUSTECH Computer Science</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>Frontend Developer @ Movable Games</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>6+ Open-Source Repositories Shipped</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>Assistant Tech Lead @ Techxplorers</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>JavaScript • React • Tailwind • C++</span>
+        </span>
+        <!-- Duplicate for seamless infinite loop -->
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>NACOS Female Tech Personality of the Year</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>LASUSTECH Computer Science</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>Frontend Developer @ Movable Games</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>6+ Open-Source Repositories Shipped</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>Assistant Tech Lead @ Techxplorers</span>
+        </span>
+        <span class="flex items-center gap-3">
+          <span class="text-[#ff4081]">✦</span>
+          <span>JavaScript • React • Tailwind • C++</span>
+        </span>
+      </div>
+    </div>
+    <!-- 4. SELECTED WORK / FEATURED REPOSITORIES WITH BROWSER CHROME MOCKUPS -->
+    <section class="w-full py-20 bg-[#faf7f8]" id="repositories">
+      <div class="max-w-[1360px] mx-auto px-6">
+        <!-- Header row -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 pb-4 border-b border-[#e8dbe0]"
+        >
+          <div>
+            <div
+              class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#b8255f] mb-1"
+            >
+              <span>SELECTED WORK</span>
+            </div>
+            <h2
+              class="text-3xl sm:text-4xl font-black text-[#1a0a10] tracking-tight"
+            >
+              Featured Projects &amp; Repositories
+            </h2>
+          </div>
+          <p class="text-xs text-[#544244] max-w-sm mt-2 sm:mt-0">
+            Interactive web applications, responsive landing interfaces, and
+            engineering prototypes.
+          </p>
+        </div>
+        <!-- Project Cards Grid (Browser Window Chrome Mockup as in Wall of Portfolios) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Project 1: travel-project -->
+          <div
+            class="bg-white rounded-2xl border border-[#ebdce1] shadow-sm overflow-hidden group hover:border-[#b8255f]/50 transition-all flex flex-col"
+          >
+            <!-- Browser Mockup Window Header -->
+            <div
+              class="bg-[#f5ecf0] px-4 py-3 border-b border-[#ebdce1] flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"
+                ></span>
+              </div>
+              <div
+                class="bg-white/80 px-3 py-1 rounded-md text-[11px] font-mono text-[#544244] border border-[#e2d5da] max-w-[220px] truncate"
+              >
+                bukola.dev/projects/travel-portal
+              </div>
+              <span class="text-[11px] font-semibold text-[#877274]"
+                >Public</span
+              >
+            </div>
+            <!-- Browser Viewport Body with Interactive Pill and Cursor (from image reference) -->
+            <div
+              class="relative bg-gradient-to-br from-[#f8eaee] to-[#fff4f6] p-8 aspect-[16/10] flex items-center justify-center overflow-hidden"
+            >
+              <!-- Simulated UI Screenshot Mockup -->
+              <div
+                class="w-full h-full bg-white rounded-xl shadow-md border border-[#dac0c3] p-5 flex flex-col justify-between transform group-hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-gray-100 pb-3"
+                >
+                  <span class="font-bold text-sm text-[#4a021a]"
+                    >✈️ Wanderlust Journeys</span
+                  >
+                  <div class="flex gap-2">
+                    <span class="w-12 h-2 bg-gray-200 rounded-full"></span>
+                    <span class="w-12 h-2 bg-gray-200 rounded-full"></span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-3 my-auto">
+                  <div
+                    class="h-20 bg-rose-50 rounded-lg border border-rose-100 p-2 flex flex-col justify-end"
+                  >
+                    <span class="text-[10px] font-bold text-[#b8255f]"
+                      >Bali Retreat</span
+                    >
+                  </div>
+                  <div
+                    class="h-20 bg-amber-50 rounded-lg border border-amber-100 p-2 flex flex-col justify-end"
+                  >
+                    <span class="text-[10px] font-bold text-amber-700"
+                      >Kyoto Autumn</span
+                    >
+                  </div>
+                  <div
+                    class="h-20 bg-sky-50 rounded-lg border border-sky-100 p-2 flex flex-col justify-end"
+                  >
+                    <span class="text-[10px] font-bold text-sky-700"
+                      >Swiss Alps</span
+                    >
+                  </div>
+                </div>
+                <div class="h-2 bg-gray-100 rounded-full w-2/3"></div>
+              </div>
+              <!-- "View Case Study" Pill + Cursor Overlay (Exact reference visual from Wall of Portfolios) -->
+              <div
+                class="absolute inset-0 bg-[#1a0a10]/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <div class="relative flex items-center">
+                  <!-- Cursor Pointer Icon -->
+                  <svg
+                    class="w-6 h-6 text-white absolute -top-4 -left-3 drop-shadow-md z-10"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z"
+                    ></path>
+                  </svg>
+                  <div
+                    class="bg-[#1a0a10] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2"
+                  >
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[14px]"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Card Description Footer -->
+            <div class="p-6 bg-white flex flex-col justify-between flex-1">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-bold text-[#1a0a10]">
+                    travel-project
+                  </h3>
+                  <span
+                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#fbeaee] text-[#b8255f]"
+                    >CSS / Vanilla JS</span
+                  >
+                </div>
+                <p
+                  class="text-xs sm:text-sm text-[#544244] leading-relaxed mb-4"
+                >
+                  Interactive travel portal interface featuring curated global
+                  flight and hotel destinations, dynamic booking components, and
+                  fluid responsive styling.
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-4 text-xs font-semibold text-[#877274] pt-3 border-t border-[#f0e4e7]"
+              >
+                <span>★ 1 Star</span>
+                <span>•</span>
+                <a
+                  class="hover:text-[#b8255f] inline-flex items-center gap-1"
+                  href="https://github.com"
+                  target="_blank"
+                >
+                  <span>View on GitHub</span>
+                  <span class="material-symbols-outlined text-[14px]"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2: landvpn -->
+          <div
+            class="bg-white rounded-2xl border border-[#ebdce1] shadow-sm overflow-hidden group hover:border-[#b8255f]/50 transition-all flex flex-col"
+          >
+            <!-- Browser Header -->
+            <div
+              class="bg-[#f5ecf0] px-4 py-3 border-b border-[#ebdce1] flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"
+                ></span>
+              </div>
+              <div
+                class="bg-white/80 px-3 py-1 rounded-md text-[11px] font-mono text-[#544244] border border-[#e2d5da] max-w-[220px] truncate"
+              >
+                bukola.dev/projects/landvpn-interface
+              </div>
+              <span class="text-[11px] font-semibold text-[#877274]"
+                >Public</span
+              >
+            </div>
+            <!-- Browser Viewport -->
+            <div
+              class="relative bg-gradient-to-br from-[#e8f0fe] to-[#f4f7fc] p-8 aspect-[16/10] flex items-center justify-center overflow-hidden"
+            >
+              <div
+                class="w-full h-full bg-white rounded-xl shadow-md border border-slate-200 p-5 flex flex-col justify-between transform group-hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-gray-100 pb-3"
+                >
+                  <span class="font-bold text-sm text-[#1e3a8a]"
+                    >🛡️ LandVPN Shield</span
+                  >
+                  <span
+                    class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full"
+                    >Encrypted</span
+                  >
+                </div>
+                <div class="text-center my-auto py-2">
+                  <p class="text-xs font-bold text-slate-800">
+                    Ultra Fast Global Nodes
+                  </p>
+                  <div class="flex justify-center gap-4 mt-2">
+                    <span
+                      class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-600"
+                      >50+ Countries</span
+                    >
+                    <span
+                      class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-600"
+                      >Zero-Logs</span
+                    >
+                  </div>
+                </div>
+                <div class="h-2 bg-slate-100 rounded-full w-1/2 mx-auto"></div>
+              </div>
+              <!-- "View Case Study" Pill + Cursor Overlay -->
+              <div
+                class="absolute inset-0 bg-[#1a0a10]/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <div class="relative flex items-center">
+                  <svg
+                    class="w-6 h-6 text-white absolute -top-4 -left-3 drop-shadow-md z-10"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z"
+                    ></path>
+                  </svg>
+                  <div
+                    class="bg-[#1a0a10] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2"
+                  >
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[14px]"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="p-6 bg-white flex flex-col justify-between flex-1">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-bold text-[#1a0a10]">landvpn</h3>
+                  <span
+                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#feeae6] text-[#e34c26]"
+                    >HTML5 &amp; CSS</span
+                  >
+                </div>
+                <p
+                  class="text-xs sm:text-sm text-[#544244] leading-relaxed mb-4"
+                >
+                  Modern VPN landing page &amp; privacy service interface built
+                  with plan comparison toggles, network latency metrics, and
+                  crisp mobile viewports.
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-4 text-xs font-semibold text-[#877274] pt-3 border-t border-[#f0e4e7]"
+              >
+                <span>Public Repo</span>
+                <span>•</span>
+                <a
+                  class="hover:text-[#b8255f] inline-flex items-center gap-1"
+                  href="https://github.com"
+                  target="_blank"
+                >
+                  <span>View on GitHub</span>
+                  <span class="material-symbols-outlined text-[14px]"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3: covid-19 -->
+          <div
+            class="bg-white rounded-2xl border border-[#ebdce1] shadow-sm overflow-hidden group hover:border-[#b8255f]/50 transition-all flex flex-col"
+          >
+            <!-- Browser Header -->
+            <div
+              class="bg-[#f5ecf0] px-4 py-3 border-b border-[#ebdce1] flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"
+                ></span>
+              </div>
+              <div
+                class="bg-white/80 px-3 py-1 rounded-md text-[11px] font-mono text-[#544244] border border-[#e2d5da] max-w-[220px] truncate"
+              >
+                bukola.dev/projects/covid19-tracker
+              </div>
+              <span class="text-[11px] font-semibold text-[#877274]"
+                >Public</span
+              >
+            </div>
+            <!-- Browser Viewport -->
+            <div
+              class="relative bg-gradient-to-br from-[#f2fcf5] to-[#e6f7ec] p-8 aspect-[16/10] flex items-center justify-center overflow-hidden"
+            >
+              <div
+                class="w-full h-full bg-white rounded-xl shadow-md border border-emerald-200 p-5 flex flex-col justify-between transform group-hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-gray-100 pb-3"
+                >
+                  <span class="font-bold text-sm text-emerald-800"
+                    >📊 Health Analytics</span
+                  >
+                  <span
+                    class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-full"
+                    >Live Feed</span
+                  >
+                </div>
+                <div class="grid grid-cols-2 gap-3 my-auto">
+                  <div class="p-2.5 bg-gray-50 rounded-lg">
+                    <span class="text-[10px] text-gray-500">Recovery Rate</span>
+                    <p class="text-sm font-bold text-emerald-600">97.4%</p>
+                  </div>
+                  <div class="p-2.5 bg-gray-50 rounded-lg">
+                    <span class="text-[10px] text-gray-500">Tested</span>
+                    <p class="text-sm font-bold text-blue-600">1.2M+</p>
+                  </div>
+                </div>
+                <div class="h-2 bg-gray-100 rounded-full w-3/4"></div>
+              </div>
+              <!-- "View Case Study" Pill + Cursor Overlay -->
+              <div
+                class="absolute inset-0 bg-[#1a0a10]/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <div class="relative flex items-center">
+                  <svg
+                    class="w-6 h-6 text-white absolute -top-4 -left-3 drop-shadow-md z-10"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z"
+                    ></path>
+                  </svg>
+                  <div
+                    class="bg-[#1a0a10] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2"
+                  >
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[14px]"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="p-6 bg-white flex flex-col justify-between flex-1">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-bold text-[#1a0a10]">covid-19</h3>
+                  <span
+                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#fbeaee] text-[#563d7c]"
+                    >CSS / Semantic Web</span
+                  >
+                </div>
+                <p
+                  class="text-xs sm:text-sm text-[#544244] leading-relaxed mb-4"
+                >
+                  Public health analytics and tracking dashboard displaying
+                  accessible statistical cards, regional outbreak counters, and
+                  preventive guidelines.
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-4 text-xs font-semibold text-[#877274] pt-3 border-t border-[#f0e4e7]"
+              >
+                <span>Public Repo</span>
+                <span>•</span>
+                <a
+                  class="hover:text-[#b8255f] inline-flex items-center gap-1"
+                  href="https://github.com"
+                  target="_blank"
+                >
+                  <span>View on GitHub</span>
+                  <span class="material-symbols-outlined text-[14px]"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Project 4: metaverse-project -->
+          <div
+            class="bg-white rounded-2xl border border-[#ebdce1] shadow-sm overflow-hidden group hover:border-[#b8255f]/50 transition-all flex flex-col"
+          >
+            <!-- Browser Header -->
+            <div
+              class="bg-[#f5ecf0] px-4 py-3 border-b border-[#ebdce1] flex items-center justify-between"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"
+                ></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"
+                ></span>
+              </div>
+              <div
+                class="bg-white/80 px-3 py-1 rounded-md text-[11px] font-mono text-[#544244] border border-[#e2d5da] max-w-[220px] truncate"
+              >
+                bukola.dev/projects/metaverse-web3
+              </div>
+              <span class="text-[11px] font-semibold text-[#877274]"
+                >Public</span
+              >
+            </div>
+            <!-- Browser Viewport -->
+            <div
+              class="relative bg-gradient-to-br from-[#200c1e] to-[#0c0512] p-8 aspect-[16/10] flex items-center justify-center overflow-hidden"
+            >
+              <div
+                class="w-full h-full bg-[#2c1228]/80 backdrop-blur-md rounded-xl shadow-xl border border-pink-500/30 p-5 flex flex-col justify-between transform group-hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-pink-500/20 pb-3"
+                >
+                  <span class="font-bold text-sm text-pink-300"
+                    >🌌 Metaverse Nexus</span
+                  >
+                  <span
+                    class="text-[10px] bg-purple-900/60 text-pink-200 font-bold px-2 py-0.5 rounded-full border border-pink-500/40"
+                    >Web3</span
+                  >
+                </div>
+                <div class="text-center my-auto py-2">
+                  <p class="text-xs font-bold text-white tracking-wide">
+                    Next-Gen Spatial Interface
+                  </p>
+                  <p class="text-[10px] text-pink-200/70 mt-1">
+                    Glassmorphism &amp; Micro-animations
+                  </p>
+                </div>
+                <div
+                  class="h-2 bg-pink-500/20 rounded-full w-1/2 mx-auto"
+                ></div>
+              </div>
+              <!-- "View Case Study" Pill + Cursor Overlay -->
+              <div
+                class="absolute inset-0 bg-[#1a0a10]/30 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+              >
+                <div class="relative flex items-center">
+                  <svg
+                    class="w-6 h-6 text-white absolute -top-4 -left-3 drop-shadow-md z-10"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z"
+                    ></path>
+                  </svg>
+                  <div
+                    class="bg-[#1a0a10] text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2"
+                  >
+                    <span>View Case Study</span>
+                    <span class="material-symbols-outlined text-[14px]"
+                      >arrow_forward</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Footer -->
+            <div class="p-6 bg-white flex flex-col justify-between flex-1">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-lg font-bold text-[#1a0a10]">
+                    metaverse-project
+                  </h3>
+                  <span
+                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-[#fbebf4] text-[#c6538c]"
+                    >SCSS &amp; Animations</span
+                  >
+                </div>
+                <p
+                  class="text-xs sm:text-sm text-[#544244] leading-relaxed mb-4"
+                >
+                  Immersive virtual reality &amp; metaverse showcase exploring
+                  deep dark glassmorphism, responsive canvas grids, and
+                  interactive animated cards.
+                </p>
+              </div>
+              <div
+                class="flex items-center gap-4 text-xs font-semibold text-[#877274] pt-3 border-t border-[#f0e4e7]"
+              >
+                <span>★ 1 Star</span>
+                <span>•</span>
+                <a
+                  class="hover:text-[#b8255f] inline-flex items-center gap-1"
+                  href="https://github.com"
+                  target="_blank"
+                >
+                  <span>View on GitHub</span>
+                  <span class="material-symbols-outlined text-[14px]"
+                    >open_in_new</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 5. EXPERIENCE & JOURNEY TIMELINE (Exact styling inspired by Image 3) -->
+    <section
+      class="w-full py-20 bg-white border-t border-[#ebdce1]"
+      id="experience"
+    >
+      <div class="max-w-[1040px] mx-auto px-6">
+        <!-- Section Header -->
+        <div class="mb-14">
+          <p
+            class="text-xs font-bold uppercase tracking-widest text-[#877274] mb-2"
+          >
+            EXPERIENCE
+          </p>
+          <h2
+            class="text-3xl sm:text-4xl font-extrabold text-[#1a0a10] tracking-tight mb-3"
+          >
+            Journey so far
+          </h2>
+          <p
+            class="text-sm sm:text-base text-[#544244] max-w-xl leading-relaxed"
+          >
+            From hands-on frontend internships to leadership in student tech
+            communities and building production-ready web tools.
+          </p>
+        </div>
+        <!-- Timeline Nodes Container -->
+        <div class="relative pl-6 sm:pl-10 space-y-12">
+          <!-- Vertical Dotted Line -->
+          <div
+            class="absolute top-3 bottom-6 left-2 sm:left-3.5 w-0.5 border-l-2 border-dashed border-[#dac0c3]"
+          ></div>
+          <!-- Node 1: Movable Games -->
+          <div class="relative group">
+            <!-- Timeline Marker Circle -->
+            <div
+              class="absolute -left-[30px] sm:-left-[43px] top-1.5 w-5 h-5 rounded-full bg-white border-4 border-[#b8255f] shadow-sm"
+            ></div>
+            <div
+              class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3"
+            >
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="font-black text-lg sm:text-xl text-[#1a0a10] tracking-tight"
+                    >MOVABLE GAMES</span
+                  >
+                  <span
+                    class="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200"
+                    >Current</span
+                  >
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-[#b8255f]">
+                  Frontend Developer Intern
+                  <span class="text-[#877274] font-normal text-sm"
+                    >• Full-time Internship</span
+                  >
+                </h3>
+              </div>
+              <div
+                class="text-xs sm:text-sm font-semibold text-[#877274] text-left sm:text-right"
+              >
+                <p>Jun 2024 – Present</p>
+                <p>Lagos, Nigeria</p>
+              </div>
+            </div>
+            <p
+              class="text-xs sm:text-sm text-[#544244] leading-relaxed max-w-3xl mb-3"
+            >
+              Building intuitive user interfaces for interactive mobile-friendly
+              gaming web portals. Collaborating directly with lead engineers to
+              refactor legacy styles into modular CSS, improving page
+              performance by 25% and reducing bundle latency across mobile web
+              browsers.
+            </p>
+            <ul
+              class="list-disc list-inside text-xs text-[#544244] space-y-1.5 ml-1"
+            >
+              <li>
+                Developed modular, reusable UI components in JavaScript and
+                modern CSS/SCSS.
+              </li>
+              <li>
+                Optimized asset loading routines and cross-browser
+                responsiveness for 10k+ visits.
+              </li>
+              <li>
+                Participated in daily agile standups and code reviews using
+                GitHub version control.
+              </li>
+            </ul>
+          </div>
+          <!-- Node 2: Techxplorers Club -->
+          <div class="relative group">
+            <!-- Timeline Marker Circle -->
+            <div
+              class="absolute -left-[30px] sm:-left-[43px] top-1.5 w-5 h-5 rounded-full bg-white border-4 border-[#4a021a] shadow-sm"
+            ></div>
+            <div
+              class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3"
+            >
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="font-black text-lg sm:text-xl text-[#1a0a10] tracking-tight"
+                    >TECHXPLORERS LASUSTECH</span
+                  >
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-[#4a021a]">
+                  Assistant Tech Lead
+                  <span class="text-[#877274] font-normal text-sm"
+                    >• Community Leadership</span
+                  >
+                </h3>
+              </div>
+              <div
+                class="text-xs sm:text-sm font-semibold text-[#877274] text-left sm:text-right"
+              >
+                <p>Oct 2023 – Present</p>
+                <p>Ikorodu, Lagos</p>
+              </div>
+            </div>
+            <p
+              class="text-xs sm:text-sm text-[#544244] leading-relaxed max-w-3xl mb-3"
+            >
+              Mentoring junior peers in web fundamentals, structuring weekly
+              coding workshops, and driving female participation across
+              university STEM initiatives. Coordinated technical hackathons and
+              spearheaded collaborative open-source team builds.
+            </p>
+            <ul
+              class="list-disc list-inside text-xs text-[#544244] space-y-1.5 ml-1"
+            >
+              <li>
+                Awarded NACOS Female Tech Personality of the Year in recognition
+                of technical contributions.
+              </li>
+              <li>
+                Delivered live coding sessions on JavaScript DOM manipulation
+                and Tailwind CSS workflows.
+              </li>
+            </ul>
+          </div>
+          <!-- Node 3: Academic Foundation & NIIT Certification -->
+          <div class="relative group">
+            <!-- Timeline Marker Circle -->
+            <div
+              class="absolute -left-[30px] sm:-left-[43px] top-1.5 w-5 h-5 rounded-full bg-white border-4 border-[#877274] shadow-sm"
+            ></div>
+            <div
+              class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3"
+            >
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span
+                    class="font-black text-lg sm:text-xl text-[#1a0a10] tracking-tight"
+                    >LASUSTECH</span
+                  >
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-[#1a0a10]">
+                  B.Sc. Computer Science
+                  <span class="text-[#877274] font-normal text-sm"
+                    >• Undergraduate</span
+                  >
+                </h3>
+              </div>
+              <div
+                class="text-xs sm:text-sm font-semibold text-[#877274] text-left sm:text-right"
+              >
+                <p>2025 – 2028 (Expected)</p>
+                <p>Lagos, Nigeria</p>
+              </div>
+            </div>
+            <p
+              class="text-xs sm:text-sm text-[#544244] leading-relaxed max-w-3xl"
+            >
+              Coursework in Data Structures &amp; Algorithms, Object-Oriented
+              Programming (C++), Operating Systems, and Software Engineering
+              methodologies. Complementary certification in Web Application
+              Development from NIIT.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 6. FOOTER: "LET'S BUILD SOMETHING TOGETHER" (Inspired directly by Image 4) -->
+    <footer
+      class="w-full bg-[#fdfafb] border-t border-[#ebdce1] pt-20 pb-12 relative overflow-hidden"
+      id="contact"
+    >
+      <div class="max-w-[1240px] mx-auto px-6">
+        <!-- Top meta label + direct links -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-12 border-b border-[#ebdce1]"
+        >
+          <div
+            class="text-xs font-bold uppercase tracking-widest text-[#877274]"
+          >
+            GET IN TOUCH
+          </div>
+          <div
+            class="flex flex-wrap items-center gap-6 text-xs sm:text-sm font-semibold text-[#1a0a10]"
+          >
+            <a
+              class="flex items-center gap-2 hover:text-[#b8255f] transition-colors"
+              href="https://www.linkedin.com/in/shukuraowoseni"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+                ></path>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a
+              class="flex items-center gap-2 hover:text-[#b8255f] transition-colors"
+              onclick="
+                navigator.clipboard.writeText(
+                  'oluwabukola.owoseni2005@gmail.com',
+                );
+                alert('Email address copied to clipboard!');
+                window.location.href =
+                  'mailto:oluwabukola.owoseni2005@gmail.com';
+              "
+              href="mailto:oluwabukola.owoseni2005@gmail.com?subject=Hello Bukola! Let's Connect"
+            >
+              <span class="material-symbols-outlined text-[18px]">mail</span>
+              <span>Email</span>
+            </a>
+            <a
+              class="flex items-center gap-2 hover:text-[#b8255f] transition-colors"
+              href="https://drive.google.com/file/d/1-SqHAzBeiA4PciskuhQeKRjs4JnD1RBw/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="material-symbols-outlined text-[18px]"
+                >description</span
+              >
+              <span>Resume</span>
+            </a>
+          </div>
+        </div>
+        <!-- Main Headline with Interactive "You" Mouse Cursor (Image 4 exact recreation) -->
+        <div class="py-16 sm:py-20 relative">
+          <h2
+            class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-[#1a0a10] leading-tight"
+          >
+            Let's build something<br />
+            <span class="text-[#b8255f]">together.</span>
+          </h2>
+          <!-- Interactive Floating Pointer with "You" pill tag (Exact from reference) -->
+          <div
+            class="inline-flex flex-col items-center ml-12 sm:ml-48 -mt-2 animate-bounce duration-1000"
+          >
+            <svg
+              class="w-7 h-7 text-[#1a0a10] drop-shadow-sm -mb-1"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M4 0l16 12.279-6.951 1.17 4.325 8.817-3.596 1.734-4.35-8.879-5.428 5.428z"
+              ></path>
+            </svg>
+            <div
+              class="bg-[#1a0a10] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-lg"
+            >
+              You
+            </div>
+          </div>
+        </div>
+        <!-- Copyright Bar -->
+        <div
+          class="pt-8 border-t border-[#ebdce1] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#877274]"
+        >
+          <p>© 2025 Bukola Shukura Owoseni • Lagos, Nigeria</p>
+          <p class="text-[#544244] font-medium">
+            Crafted with modern HTML5, Tailwind CSS &amp; Passion
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- Smooth Anchor Scroll Script -->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (targetId && targetId !== "#") {
+            const target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
